@@ -1,4 +1,7 @@
+aiohttp
+python-dotenv
 cryptofeed
 aiokafka
-python-dotenv
 asyncio
+streamlit
+kafka-python

@@ -1,7 +1,3 @@
-from zoneinfo import ZoneInfo
-
-from aiokafka import AIOKafkaProducer
-import json
 import logging
 
 logger = logging.getLogger(__name__)
@@ -30,7 +26,7 @@ async def produce_trade(producer: AIOKafkaProducer, trade: dict, topic: str, sym
             "data": trade
         }
         key = f"{exchange}-{symbol}"
-        await producer.send_and_wait(topic, json.dumps(message).encode("utf-8"), key=key.encode("utf-8"))
+        await produce(producer, topic, message, key=symbol)
     except Exception as e:
         print(f"[ERROR] Trade-Message konnte nicht gesendet werden: {e}")
 
