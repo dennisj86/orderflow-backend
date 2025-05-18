@@ -1,0 +1,4 @@
+cryptofeed
+aiokafka
+python-dotenv
+asyncio
